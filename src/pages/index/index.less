@@ -1,0 +1,123 @@
+@import '../../assets/style/common.less';
+#index{
+  background-color: #FFF;
+  overflow: auto;
+  .moduleCtn{
+    margin-top: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .module_item{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: calc(50% - 12px);
+      height: 168px;
+      color: #FFF;
+      font-size: 30px;
+      border-radius: 8px;
+      box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.06);
+      &:nth-child( n+3 ){
+        margin-top: 24px;
+      }
+      .left_icon{
+        width: 80px;
+        height: 80px;
+        margin-right: 24px;
+      }
+    }
+  }
+  .store_top_title{
+    color: @fontColorDeep;
+    font-size: 36px;
+    font-weight: 500;
+    margin: 32px 0 24px;
+  }
+  .waterfall_flow_box{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    // background-color: @bodyBg;
+    .left_ctn,
+    .right_ctn{
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      // overflow: hidden;
+      .waterfall_flow_item{
+        display: flex;
+        flex-direction: column;
+        border-radius: 8px;
+        background-color: #FFF;
+        box-shadow: @borderShadow;
+        // overflow: hidden;
+        margin-bottom: 24px;
+        padding-bottom: 24px;
+        .waterfall_flow_item__image{
+          width: 100%;
+          border-top-left-radius: 8px;
+          border-top-right-radius: 8px;
+        }
+        .waterfall_flow_item__title{
+          margin-top: 31px;
+          height: 66px;
+          padding: 0 15px;
+          box-sizing: border-box;
+          // 超过两行省略号展示
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          -webkit-box-orient: vertical;
+        }
+        .waterfall_flow_item__info{
+          margin-top: 22px;
+          height: 40px;
+          padding: 0 15px;
+          box-sizing: border-box;
+          display: flex;
+          align-items: center;
+          .company_info{
+            flex: 1;
+            display: flex;
+            align-items: center;
+            margin-right: 24px;
+            .company_logo{
+              width: 32px;
+              height: 32px;
+              border-radius: 50%;
+            }
+            .company_name{
+              flex: 1;
+              margin-left: 12px;
+              font-size: 22px;
+              line-height: 1.1em;
+              display: -webkit-box;
+              -webkit-line-clamp: 2;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              -webkit-box-orient: vertical;
+            }
+          }
+          .like{
+            display: flex;
+            align-items: center;
+            .like_icon{
+              width: 32px;
+              height: 32px;
+              margin-right: 8px;
+            }
+            .like_num{
+              &.isLike{
+                color: @blue;
+              }
+            }
+          }
+        }
+      }
+    }
+    .left_ctn{
+      margin-right: 24px;
+    }
+  }
+}

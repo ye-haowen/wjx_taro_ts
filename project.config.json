@@ -1,0 +1,23 @@
+{
+  "miniprogramRoot": "dist/",
+  "projectname": "wjc_weapp",
+  "description": "围巾城项目小程序端",
+  "appid": "wxf82a5e0fe25fc18f",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "postcss": false,
+    "preloadBackgroundData": false,
+    "minified": false,
+    "newFeature": true,
+    "autoAudits": false,
+    "coverView": true,
+    "showShadowRootInWxmlPanel": false,
+    "scopeDataCheck": false,
+    "useCompilerModule": false
+  },
+  "compileType": "miniprogram",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {}
+}

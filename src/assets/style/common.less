@@ -1,0 +1,71 @@
+@bodyBg: #F0F2F5;
+
+@blue: #3D7FFF;
+@green: #28B998;
+@red: #FF7875;
+@orange: #FF5000;
+
+@fontColorNormal: #666666;
+@fontColorShallow: #999999;
+@fontColorDeep: #333333;
+
+@fontSizeNormal: 26px;
+@fontSizeBig: 28px;
+@fontSizeSmall: 24px;
+
+@borderColor: rgba(0,0,0,.1);
+
+@borderShadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.06);
+
+/**
+* 引入iconFont
+*/
+@font-face {
+  font-family: 'iconfont';  /* project id 2254908 */
+  src: url('//at.alicdn.com/t/font_2254908_hpz4fvr6yzp.eot');
+  src: url('//at.alicdn.com/t/font_2254908_hpz4fvr6yzp.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_2254908_hpz4fvr6yzp.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_2254908_hpz4fvr6yzp.woff') format('woff'),
+  url('//at.alicdn.com/t/font_2254908_hpz4fvr6yzp.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_2254908_hpz4fvr6yzp.svg#iconfont') format('svg');
+}
+.iconFont{
+  font-family: 'iconfont';
+  color: @blue;
+  &.user_account::after{
+    content: '\e60d';
+  }
+  &.user_password::after{
+    content: '\e635';
+  }
+  &.meau::after{
+    content:'\e608';
+  }
+  &.msg::after{
+    content: '\e720';
+  }
+  &.scan::after{
+    content:'\e6ea';
+  }
+}
+
+/**
+* 页面通用样式定义及默认样式修改
+*/
+page{
+  height: 100%;
+  width: 100%;
+  font-size: @fontSizeNormal;
+  .pageBody{
+    border-top: 1px solid @borderColor;
+    background-color: @bodyBg;
+    height: 100%;
+    overflow: hidden;
+    padding: 0 32px;
+    box-sizing: border-box;
+  }
+}
+.input{
+  background-color: #FFF;
+  padding: 16px 32px;
+}

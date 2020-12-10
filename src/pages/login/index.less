@@ -1,0 +1,75 @@
+@import '../../assets/style/common.less';
+#login{
+  background-color: #FFF;
+  padding: 26px 32px 46px 32px;
+  box-sizing: border-box;
+  .out_box{
+    width: 690px;
+    height: 100%;
+    padding: 0 40px 0 69px;    
+    box-shadow: 0px 0px 12px 0px rgba(0, 145, 255, 0.2);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+    .logo_ctn{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 82px;
+      .logo{
+        width: 80px;
+        height: 80px;
+      }
+      .name{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 24px;
+        margin-bottom: 104px;
+        color: @fontColorNormal;
+        font-size: 32px;
+      }
+    }
+    .input_ctn{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-bottom: 1px solid @borderColor;
+      padding: 1px;
+      &.haveMarginTop{
+        margin-top: 43px;
+      }
+      .input{
+        flex: 1;
+      }
+    }
+    .login_btn{
+      width: 100%;
+      height: 72px;
+      color: #FFF;
+      line-height: 72px;
+      margin-top: 63px;
+      text-align: center;
+      background: linear-gradient(315deg, #337CFF 0%, #33A7FF 100%);
+      border-radius: 36px;
+      font-size: @fontSizeBig;
+    }
+    .change_password_btn{
+      margin: 42px 0 290px 0;
+      color: @fontColorNormal;
+    }
+    .other_info{
+      position: absolute;
+      bottom: 46px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 22px;
+      color: @fontColorShallow;
+    }
+  }
+}
