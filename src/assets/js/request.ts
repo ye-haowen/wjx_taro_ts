@@ -60,10 +60,11 @@ export class Request {
   static async request(opts: Options) {
     // Taro.request 请求
     const res = await Taro.request(opts);
-
     // 请求成功
     if (res.data.code === 200) {
       return res.data
+    } else if (res.data.code === 401) {
+      Taro.reLaunch({ url: '/pages/login/index' })
     }
 
     // 请求错误

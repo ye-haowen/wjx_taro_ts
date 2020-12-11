@@ -1,7 +1,8 @@
 export default {
   pages: [
-    'pages/product/list/index',
     'pages/index/index',
+    'pages/product/detail/index',
+    'pages/product/list/index',
     'pages/login/index'
   ],
   window: {

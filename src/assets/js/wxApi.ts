@@ -54,7 +54,7 @@ export class Tips {
  * wx_api封装
  */
 export class WxApi {
-  static manageFun = (res: object, status: boolean): {} => {
+  static manageFun = (res: object, status: boolean): { _status: boolean, [key: string]: any } => {
     return {
       ...res,
       _status: status
@@ -96,14 +96,8 @@ export class WxApi {
       })
     })
   }
-  static getElInfo(el: string, flag?: boolean) {
+  static getElInfo(el: string) {
     return new Promise(resolve => {
-      // if (flag) {//是否唯一
-      //   Taro.createSelectorQuery().select(el).boundingClientRect().exec(res => {
-      //     resolve(this.manageFun(res, true))
-      //   })
-      //   return
-      // }
       Taro.createSelectorQuery().selectAll(el).boundingClientRect().exec(res => {
         resolve(res)
       })
@@ -123,9 +117,21 @@ export class WxApi {
     })
   }
   static reLaunch(url: string) {
-    console.log(url)
     return new Promise(resolve => {
       Taro.reLaunch({
+        url: url,
+        success: (res) => {
+          resolve(this.manageFun(res, true))
+        },
+        fail: (res) => {
+          resolve(this.manageFun(res, false))
+        }
+      })
+    })
+  }
+  static navigateTo(url: string) {
+    return new Promise(resolve => {
+      Taro.navigateTo({
         url: url,
         success: (res) => {
           resolve(this.manageFun(res, true))

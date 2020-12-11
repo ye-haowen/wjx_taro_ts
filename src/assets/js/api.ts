@@ -4,5 +4,6 @@ export default {
     method: 'POST'
   },
   authInfo: 'user/info',
-  getProductList: 'product/lists'
+  getProductList: 'product/lists',
+  getProductDetail: 'product/detail'
 }

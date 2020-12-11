@@ -1,0 +1,82 @@
+@import './common.less';
+.pageBody.pageDetailCtn{
+  padding: 24px 18px 26px;
+  .detailCtn{
+    width: 100%;
+    border-radius: 24px;
+    background-color: #FFF;
+    padding: 24px 26px;
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    .title{
+      height: 37px;
+      display: flex;
+      align-items: center;
+      color: @fontColorDeep;
+      font-weight: bold;
+      &::before{
+        content: '';
+        width: 6px;
+        height: 37px;
+        background: linear-gradient(to bottom,#44D7B6,#0091FF,#9678FF);
+        border-radius: 3px;
+        margin-right: 16px;
+      }
+    }
+    .line{
+      width: 100%;
+      height: 0;
+      border: @borderStyle;
+      margin: 23px 0;
+    }
+    .row_item{
+      display: flex;
+      margin-bottom: 24px;
+      &.noMargin,
+      &:last-of-type{
+        margin-bottom: 0;
+      }
+      &.col{
+        flex-direction: column;
+        .label{
+          margin-bottom: 16px;
+        }
+      }
+      .label{
+        width: 4em;
+        margin-right: 24px;
+        line-height: 33px;
+        font-size: @fontSizeSmall;
+        color: @fontColor45;
+        text-align: justify;
+        text-align-last: justify;
+      }
+      .text{
+        flex: 1;
+        color: @fontColor85;
+        &.strong{
+          font-size: @fontSizeBig;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+  .middleTitleCtn{
+    margin:  42px 0 24px;
+    padding: 0 26px;
+    display: flex;
+    align-items: center;
+    color: @fontColorShallow;
+    .title{
+      flex: 1;
+      font-size: 32px;
+    }
+    .stock_info{
+      display: flex;
+      align-items: center;
+      .stock_num{
+        color: @fontColor100;
+      }
+    }
+  }
+}

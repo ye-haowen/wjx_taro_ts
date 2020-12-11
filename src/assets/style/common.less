@@ -8,12 +8,17 @@
 @fontColorNormal: #666666;
 @fontColorShallow: #999999;
 @fontColorDeep: #333333;
+@fontColor100: rgba(0,0,0,1);
+@fontColor85: rgba(0,0,0,.85);
+@fontColor65: rgba(0,0,0,.65);
+@fontColor45: rgba(0,0,0,.45);
 
 @fontSizeNormal: 26px;
 @fontSizeBig: 28px;
 @fontSizeSmall: 24px;
 
 @borderColor: rgba(0,0,0,.1);
+@borderStyle: 1px solid @borderColor;
 
 @borderShadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.06);
 
@@ -56,13 +61,23 @@ page{
   height: 100%;
   width: 100%;
   font-size: @fontSizeNormal;
+  color: @fontColorNormal;
   .pageBody{
-    border-top: 1px solid @borderColor;
+    border-top: 2px solid @borderColor;
     background-color: @bodyBg;
     height: 100%;
     overflow: hidden;
     padding: 0 32px;
     box-sizing: border-box;
+    .blue{
+      color: @blue;
+    }
+    .orange{
+      color: @orange;
+    }
+    .red{
+      color: @red;
+    }
   }
 }
 .input{
