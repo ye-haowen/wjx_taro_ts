@@ -1,9 +1,9 @@
 @import '../../assets/style/common.less';
 #index{
   background-color: #FFF;
-  overflow: auto;
   .moduleCtn{
     margin-top: 28px;
+    padding: @paddingCommon;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -31,26 +31,26 @@
     color: @fontColorDeep;
     font-size: 36px;
     font-weight: 500;
+    padding: @paddingCommon;
     margin: 32px 0 24px;
   }
   .waterfall_flow_box{
     width: 100%;
     display: flex;
     justify-content: space-between;
-    // background-color: @bodyBg;
+    padding:  @paddingCommon;
+    box-sizing: border-box;
     .left_ctn,
     .right_ctn{
       display: flex;
       flex-direction: column;
       flex: 1;
-      // overflow: hidden;
       .waterfall_flow_item{
         display: flex;
         flex-direction: column;
         border-radius: 8px;
         background-color: #FFF;
         box-shadow: @borderShadow;
-        // overflow: hidden;
         margin-bottom: 24px;
         padding-bottom: 24px;
         .waterfall_flow_item__image{

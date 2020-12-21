@@ -5,5 +5,11 @@ export default {
   },
   authInfo: 'user/info',
   getProductList: 'product/lists',
-  getProductDetail: 'product/detail'
+  getProductDetail: 'product/detail',
+  collectProduct: {
+    url: 'product/collect',
+    method: 'POST'
+  },
+  getOrderList: 'order/lists',
+  getOrderDetail: 'order/detail'
 }

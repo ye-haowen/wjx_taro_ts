@@ -1,8 +1,10 @@
 export default {
   pages: [
+    'pages/order/list/index',
     'pages/index/index',
     'pages/product/detail/index',
     'pages/product/list/index',
+    'pages/order/detail/index',
     'pages/login/index'
   ],
   window: {
@@ -19,7 +21,7 @@ export default {
       iconPath: './assets/image/tabbar/store_1.png',
       selectedIconPath: './assets/image/tabbar/store_2.png'
     }, {
-      pagePath: "pages/product/list/index",
+      pagePath: "pages/order/list/index",
       text: "个人中心",
       iconPath: './assets/image/tabbar/user_1.png',
       selectedIconPath: './assets/image/tabbar/user_2.png'

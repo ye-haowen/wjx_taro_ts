@@ -1,8 +1,9 @@
-import React, { Component, useState } from 'react'
+import React, { Component } from 'react'
 import { ScrollView, Image } from '@tarojs/components'
 import Api from '../../../assets/js/request'
 import SearchNavBar from '../../../components/searchNavBar/index'
-import { Tips, WxApi } from '../../../assets/js/wxApi'
+import { WxApi } from '../../../assets/js/wxApi'
+import GlobalData from '../../../assets/js/globalData'
 import './index.less'
 
 declare type isState = {
@@ -25,7 +26,7 @@ export default class Index extends Component<any, isState> {
   }
   //  页面挂载初始化
   componentDidMount() {
-    this.getProductList(true)
+    this.getOrderList(true)
   }
   // 页面准备好更新scrollView的height
   onReady() {
@@ -51,7 +52,7 @@ export default class Index extends Component<any, isState> {
    * 获取产品列表数据
    * @param isReset 是否重置页数及数据
    */
-  getProductList(isReset?: boolean, limit: number = 10) {
+  getOrderList(isReset?: boolean, limit: number = 10) {
     if (isReset) {
       console.log(isReset)
       this.setState({
@@ -64,7 +65,7 @@ export default class Index extends Component<any, isState> {
     this.setState({
       isGetting: true
     })
-    Api.getProductList({
+    Api.getOrderList({
       limit: limit,
       page: this.state.pages + 1,
     }).then(res => {
@@ -72,7 +73,7 @@ export default class Index extends Component<any, isState> {
         const manageData = res.data.items.map(itemM => { //此处处理下数据  如无需处理  去掉map
           return {
             ...itemM,
-            category_info: JSON.parse(itemM.category_info)
+            sku_info: itemM.sku_info && JSON.parse(itemM.sku_info)
           }
         })
         this.setState({
@@ -86,22 +87,22 @@ export default class Index extends Component<any, isState> {
   }
   render() {
     return (
-      <view className='pageBody pageListCtn' id='productList'>
+      <view className='pageBody pageListCtn' id='orderList'>
         {/* 顶部搜索栏 */}
         <SearchNavBar onSearch={() => {
-          this.getProductList(true)
-        }}
+          this.getOrderList(true)
+        }} className='searchCtn'
         />
         <view className='selectCtn'>筛选栏</view>
         {/* 下方scroll栏 */}
         <view className='scrollViewBox'>
           <ScrollView
-            className='scrollViewCtn product_list_ctn'
+            className='scrollViewCtn order_list_ctn'
             scrollY
             style={`height:${this.state.height}px`}
-            onScrollToLower={() => { this.getProductList() }}
+            onScrollToLower={() => { this.getOrderList() }}
           >
-            {this.state.list.map((item, index) => <ProductListItem item={item} key={index} />)}
+            {this.state.list.map((item, index) => <OrderListItem item={item} key={index} />)}
             <view className='popmpt'>
               {this.state.isLast ? '已加载全部' : this.state.isGetting ? "获取数据中" : '下拉刷新'}
             </view>
@@ -111,44 +112,26 @@ export default class Index extends Component<any, isState> {
     )
   }
 }
-function ProductListItem({ item, ...props }) {
-  const [isLike, setIsLike] = useState(item.is_collect === 1)
+function OrderListItem({ item, ...props }) {
+  const isItemStatus = Math.random() > 0.5
   return (
     <view
-      className='product_list_item'
+      className='order_list_item'
       onClick={() => {
-        WxApi.navigateTo(`/pages/product/detail/index?productId=${item.id}`)
+        GlobalData.set('order_detail', item)
+        WxApi.navigateTo(`/pages/order/detail/index?orderId=${item.id}`)
       }}
     >
-      <Image mode='aspectFit' src={item.images[0] && item.images[0].thumb || require(`../../../assets/image/noPic.jpg`)} className='left_image' />
+      <Image mode='aspectFit' src={item.sku_info && item.sku_info['图片'] || require(`../../../assets/image/noPic.jpg`)} className='left_image' />
       <view className='right_info'>
         <view className='top_info'>
-          <view className='title'>{item.name}</view>
-          <view className='company_info'>
-            <Image mode='aspectFit' src={require(`../../../assets/image/icon/like_1.png`)} className='company_image' />
-            <view className='company_name'>桐庐凯瑞针纺有限公司</view>
-          </view>
+          <view className='top_item strong'>订单编号：{item.order_code}</view>
+          <view className='top_item'>产品名称：{item.product_name}</view>
+          <view className='top_item'>备注信息：{item.desc}</view>
         </view>
         <view className='bottom_info'>
-          <view className='like' onClick={(e) => {
-            //收藏
-            e.stopPropagation()
-            Api.collectProduct({
-              id: item.id
-            }).then(res => {
-              if (res.status !== false) {
-                Tips.toast({ title: `${!isLike && '已收藏' || '已取消收藏'}`, duration: 500 })
-                setIsLike(!isLike)
-              } else {
-                Tips.toast({ title: '收藏失败', duration: 500 })
-              }
-            })
-          }}
-          >
-            <Image mode='aspectFit' src={require(`../../../assets/image/icon/like_${isLike ? 2 : 1}.png`)} className='like_icon' />
-            <view className={`like_num ${isLike && 'isLike'}`}>22238</view>
-          </view>
-          <view className='price'>{item.min_price || item.max_price ? `￥${item.min_price || '?'}~${item.max_price || '?'}` : `￥??`}</view>
+          <view className='order_time'>{item.create_time}</view>
+          <view className={`status ${isItemStatus ? 'orange' : 'green'}`}>{isItemStatus ? '未发货' : '已发货'}</view>
         </view>
       </view>
     </view>

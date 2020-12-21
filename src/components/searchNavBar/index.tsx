@@ -7,12 +7,15 @@ declare type isProps = {
   onSearch: (value: string) => void,
   onScan?: (data) => void,
   value?: string,
+  className?: string,
   [key: string]: any
 }
-function SearchNavBar({ onSearch, onScan, value, ...props }: isProps) {
-  const [searchWord, setSearchWord] = useState('111')
+function SearchNavBar({ onSearch, onScan, value, className, ...props }: isProps) {
+  const [searchWord, setSearchWord] = useState(value)
   return (
-    <view className='search_nav_bar'>
+    <view className={`search_nav_bar ${className}`}
+      {...props}
+    >
       <view className='left'>
         <view className='iconFont msg'></view>
       </view>

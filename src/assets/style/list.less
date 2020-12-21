@@ -1,4 +1,29 @@
 @import './common.less';
 .pageBody.pageListCtn{
+  display: flex;
+  flex-direction: column;
   background-color: #FFF;
+  height: 100%;
+  overflow: hidden;
+  .selectCtn{
+    min-height: 68px;
+    line-height: 68px;
+    background-color: @bodyBg;
+    padding: @paddingCommon;
+  }
+  .scrollViewBox{
+    flex: 1;
+    box-shadow: inset 0px 15px 10px -15px @bodyBg;
+    .scrollViewCtn{
+      padding:  32px;
+      box-sizing: border-box;
+    }
+    // 最下方加载提示
+    .popmpt{
+      height: 64px;
+      text-align: center;
+      line-height: 64px;
+      color: @fontColorShallow;
+    }
+  }
 }

@@ -1,16 +1,14 @@
 /**
  * @name getTime 转换时间格式(yyy-MM-dd)
  * @param date 需要转换时间格式的数据,未传递返回当前时间
+ * @param connector 连接符(默认'-')
  */
-function $getTime(date?: any): string {
+function $getTime(date?: any, connector: string = '-'): string {
   if (date && !new Date(date)) {
     return 'error'
   }
-  const nowDate: Date = date ? new Date(date) : new Date()
-  const year: number = nowDate.getFullYear()
-  const month: number = nowDate.getMonth() + 1
-  const data: number = nowDate.getDate()
-  return [year, month.toString()[1] ? month : '0' + month, data.toString()[1] ? data : '0' + data].join('-')
+  const nowDate: string = (date ? new Date(date) : new Date()).toLocaleDateString()
+  return nowDate.replace(/\//g, connector)
 }
 /**
  * @name getDataType 获取数据的类型
@@ -104,6 +102,17 @@ function hashArrManager(): () => string {
   }
   return getId
 }
+/**
+ * 数字规范
+ */
+function $formatNum(num: number): string {
+  if (num === null || num === undefined) {
+    return 'NaN'
+  }
+  var str = num.toString()
+  var reg = str.indexOf('.') > -1 ? /(\d)(?=(\d{3})+\.)/g : /(\d)(?=(?:\d{3})+$)/g
+  return str.replace(reg, '$1,')
+}
 const $getOnlyHashId = hashArrManager()
 export {
   $getTime,
@@ -112,5 +121,6 @@ export {
   $toFixed,
   $unique,
   $submitLock,
-  $getOnlyHashId
+  $getOnlyHashId,
+  $formatNum
 }

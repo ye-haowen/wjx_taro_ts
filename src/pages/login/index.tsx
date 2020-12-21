@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Image, Input } from '@tarojs/components'
 import Api, { Request } from '../../assets/js/request'
-import { WxApi } from '../../assets/js/wxApi'
+import { Tips, WxApi } from '../../assets/js/wxApi'
 import './index.less'
 
 interface isState {
@@ -39,11 +39,12 @@ export default class Index extends Component<any, isState> {
       return
     }
     // 登陆
+    Tips.loading('正在登陆...')
     Api.login({
       user_name: this.state.user_account,
       password: this.state.user_password
     }).then(res => {
-      if (res.data.status !== false) {
+      if (res.status !== false) {
         WxApi.setStorageSync('zh_wjc_token', `${res.data.token_type} ${res.data.access_token}`)
         //  更新token
         Request.updateToken(`${res.data.token_type} ${res.data.access_token}`)
@@ -52,8 +53,15 @@ export default class Index extends Component<any, isState> {
         WxApi.setStorageSync('zh_wjc_user_password', this.state.user_password)
         //  获取用户信息
         Api.authInfo().then(resAuth => {
-          WxApi.setStorageSync('zh_wjc_user_info', resAuth.data)
-          WxApi.reLaunch('/pages/index/index')
+          if (res.status !== false) {
+            WxApi.setStorageSync('zh_wjc_user_info', resAuth.data)
+            WxApi.reLaunch('/pages/index/index')
+          } else {
+            Tips.loaded()
+            WxApi.showModal({
+              content: '登陆失败'
+            })
+          }
         })
       }
     })

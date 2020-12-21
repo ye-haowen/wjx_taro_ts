@@ -1,0 +1,68 @@
+@import '../../../assets/style/list.less';
+#orderList{
+  background-color: @bodyBg;
+  .searchCtn,
+  .selectCtn{
+    background-color: #FFF;
+    margin-bottom: 0;
+  }
+  .scrollViewCtn{
+    padding: 24px 18px;
+    &.order_list_ctn{
+      .order_list_item{
+        display: flex;
+        align-items: center;
+        height: 228px;
+        margin-bottom: 24px;
+        padding: 24px 60px 24px 24px;
+        box-sizing: border-box;
+        background-color: #FFF;
+        border-radius: 24px;      
+        box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.06);
+        overflow: hidden;
+        .left_image{
+          width: 180px;
+          height: 180px;
+          margin-right: 18px;
+        }
+        .right_info{
+          height: 100%;
+          flex: 1;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          .top_info{
+            .top_item{
+              margin-bottom: 18px;
+              color: @fontColorShallow;
+              font-size: @fontSizeSmall;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              line-height: 1em;
+              &:last-of-type{
+                margin-bottom: 0;
+              }
+              &.strong{
+                margin-bottom: 14px;
+                color: @fontColor100;
+                font-size: @fontSizeBig;
+                line-height: 44px;
+              }
+            }
+          }
+          .bottom_info{
+            display: flex;
+            align-items: center;
+            height: 50px;
+            overflow: hidden;
+            .order_time{
+              flex: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}

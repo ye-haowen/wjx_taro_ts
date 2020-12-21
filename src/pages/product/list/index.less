@@ -1,107 +1,87 @@
 @import '../../../assets/style/list.less';
 #productList{
-  display: flex;
-  flex-direction: column;
-  .selectCtn{
-    min-height: 68px;
-    line-height: 68px;
-    margin-bottom: 32px;
-    background-color: @bodyBg;
-  }
-  .scrollViewBox{
-    box-shadow: inset 0px 15px 10px -15px @bodyBg;
-    flex: 1;
-    .product_list_ctn{
-      .product_list_item{
-        display: flex;
-        align-items: center;
-        height: 255px;
+  .product_list_ctn{
+    .product_list_item{
+      display: flex;
+      align-items: center;
+      height: 255px;
+      overflow: hidden;
+      padding: 32px 0;
+      box-sizing: border-box;
+      border-bottom: @borderStyle;
+      .left_image{
+        width: 254px;
+        height: 192px;
+        margin-right: 24px;
+      }
+      .right_info{
+        height: 100%;
+        flex: 1;
         overflow: hidden;
-        padding: 32px 0;
-        box-sizing: border-box;
-        border-bottom: @borderStyle;
-        .left_image{
-          width: 254px;
-          height: 192px;
-          margin-right: 24px;
-        }
-        .right_info{
-          height: 100%;
-          flex: 1;
-          overflow: hidden;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          .top_info{
-            .title{
-              font-size: 34px;
-              color: @fontColorDeep;
-              display: -webkit-box;
-              -webkit-line-clamp: 2;
-              -webkit-box-orient: vertical;
-              overflow: hidden;
-              text-overflow: ellipsis;
-            }
-            .company_info{
-              display: flex;
-              align-items: center;
-              height: 44px;
-              overflow: hidden;
-              margin-top: 12px;
-              .company_image{
-                width: 44px;
-                height: 44px;
-                margin-right: 16px;
-              }
-              .company_name{
-                flex: 1;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                color: @fontColorShallow;
-              }
-            }
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .top_info{
+          .title{
+            font-size: 34px;
+            color: @fontColorDeep;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
           }
-          .bottom_info{
+          .company_info{
             display: flex;
             align-items: center;
-            height: 50px;
+            height: 44px;
             overflow: hidden;
-            .like{
-              flex: 1;
-              overflow: hidden;
-              display: flex;
-              align-items: center;
-              .like_icon{
-                width: 26px;
-                height: 26px;
-                margin-right: 8px;
-              }
-              .like_num{
-                // line-height: 1em;
-                color: @fontColorShallow;
-                &.isLike{
-                  color: @blue;
-                }
-              }
+            margin-top: 12px;
+            .company_image{
+              width: 44px;
+              height: 44px;
+              margin-right: 16px;
             }
-            .price{
-              // display: flex;
-              // align-items: flex-end;
-              margin-left: 24px;
-              height: 50px;
-              color: @orange;
-              font-size: 36px;
-              line-height: 1em;
+            .company_name{
+              flex: 1;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              color: @fontColorShallow;
             }
           }
         }
-      }
-      .popmpt{
-        height: 64px;
-        text-align: center;
-        line-height: 64px;
-        color: @fontColorShallow;
+        .bottom_info{
+          display: flex;
+          align-items: center;
+          height: 50px;
+          overflow: hidden;
+          .like{
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            .like_icon{
+              width: 26px;
+              height: 26px;
+              margin-right: 8px;
+            }
+            .like_num{
+              color: @fontColorShallow;
+              &.isLike{
+                color: @blue;
+              }
+            }
+          }
+          .price{
+            flex: 1;
+            margin-left: 24px;
+            text-align: right;
+            height: 50px;
+            color: @orange;
+            font-size: 36px;
+            line-height: 1em;
+          }
+        }
       }
     }
   }

@@ -142,4 +142,9 @@ export class WxApi {
       })
     })
   }
+  static setClipboardData(data: string) {
+    Taro.setClipboardData({
+      data: data
+    })
+  }
 }
