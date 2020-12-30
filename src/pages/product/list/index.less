@@ -31,50 +31,61 @@
             overflow: hidden;
             text-overflow: ellipsis;
           }
-          .company_info{
+          .product_info{
             display: flex;
             align-items: center;
+            justify-content: space-between;
             height: 44px;
             overflow: hidden;
             margin-top: 12px;
-            .company_image{
-              width: 44px;
-              height: 44px;
-              margin-right: 16px;
-            }
-            .company_name{
-              flex: 1;
-              white-space: nowrap;
-              overflow: hidden;
-              text-overflow: ellipsis;
-              color: @fontColorShallow;
-            }
           }
+          // .company_info{
+          //   display: flex;
+          //   align-items: center;
+          //   height: 44px;
+          //   overflow: hidden;
+          //   margin-top: 12px;
+          //   .company_image{
+          //     width: 44px;
+          //     height: 44px;
+          //     margin-right: 16px;
+          //   }
+          //   .company_name{
+          //     flex: 1;
+          //     white-space: nowrap;
+          //     overflow: hidden;
+          //     text-overflow: ellipsis;
+          //     color: @fontColorShallow;
+          //   }
+          // }
         }
         .bottom_info{
           display: flex;
           align-items: center;
           height: 50px;
           overflow: hidden;
-          .like{
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            .like_icon{
-              width: 26px;
-              height: 26px;
-              margin-right: 8px;
-            }
-            .like_num{
-              color: @fontColorShallow;
-              &.isLike{
-                color: @blue;
-              }
-            }
+          .iconFont{
+            margin-right: 24px;
           }
+          // .like{
+          //   overflow: hidden;
+          //   display: flex;
+          //   align-items: center;
+          //   .like_icon{
+          //     width: 26px;
+          //     height: 26px;
+          //     margin-right: 8px;
+          //   }
+          //   .like_num{
+          //     color: @fontColorShallow;
+          //     &.isLike{
+          //       color: @blue;
+          //     }
+          //   }
+          // }
           .price{
             flex: 1;
-            margin-left: 24px;
+            // margin-left: 24px;
             text-align: right;
             height: 50px;
             color: @orange;
@@ -84,5 +95,14 @@
         }
       }
     }
+  }
+  .curtain{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: @fontColor45;
+
   }
 }

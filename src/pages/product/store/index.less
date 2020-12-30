@@ -1,5 +1,5 @@
 @import '../../../assets/style/detail.less';
-#productDetail{
+#productStore{
   .innerClass{
     margin-bottom: 24px;
     display: flex;
@@ -50,53 +50,44 @@
       }
     }
   }
-  .dataCtn{
-    .dataTitle{
-      color: @fontColorDeep;
-      font-size: 32px;
-      font-weight: 500;
-      margin-bottom: 32px;
-    }
-    .dataDetail{
-      width: 100%;
+  .storeTableCtn{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    .table_item{
       display: flex;
       align-items: center;
-      flex-wrap: wrap;
-      .data_item{
-        width: calc(100% / 3);
-        text-align: center;
-        margin-bottom: 32px;
-        &.addCtn{
-          &::after{
-            content:'\e68f';
-            font-family: 'iconfont';
-            font-size: 32px;
-            color: #CCC;
-          }
-        }
-        .data_info{
-          font-size: 36px;
-          color: #111;
-          font-weight: 500;
-          letter-spacing: 1px;
-          word-break: keep-all;
-          white-space: nowrap;
-        }
-        .data_name{
-          color: @fontColorShallow;
+      color: @fontColor65;
+      &.title{
+        color: @fontColor45;
+      }
+      .table_row_item{
+        flex: 1;
+        min-height: 50px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        &.flex2{
+          flex: 2;
         }
       }
     }
   }
-  .collectBtn{
-    border: 1px solid @blue;
-    border-radius: 21px;
-    height: 42px;
-    box-sizing: border-box;
-    padding: 0 16px;
-    .iconFont{
-      font-size: @fontSizeSmall;
-      line-height: 40px;
+  .store_log_item{
+    padding-left: 30px;
+    position: relative;
+    margin-bottom: 8px;
+    &::before{
+      content: '';
+      display: block;
+      width: 10px;
+      height: 10px;
+      background-color: @blue;
+      border-radius: 50%;
+      position: absolute;
+      top: 17px;
+      left: 15px;
+      transform: translate(-50%,-50%);
     }
   }
 }

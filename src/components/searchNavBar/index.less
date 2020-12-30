@@ -7,25 +7,30 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
   .left,
   .right{
     font-size: 40px;
   }
   .middle{
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border: 3px solid @blue;
     border-radius: 32px;
-    width: 560px;
+    // width: 560px;
     height: 64px;
     box-sizing: border-box;
+    margin: 0 0 0 24px;
     .left_icon{
       height: 40px;
       padding: 4px 16px 4px 24px;
       border-right: 2px solid #E9E9E9;
     }
     .search_input{
+      margin: 0 16px;
+      flex: 1;
       height: 64px;
       box-sizing: border-box;
     }
@@ -37,6 +42,84 @@
       text-align: center;
       line-height: 64px;
       color: #FFF;
+    }
+  }
+  .search_data_view{
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #FFF;
+    padding: 12px 32px;
+    box-shadow:  0px 15px 10px -15px rgba(0,0,0,.65);
+    box-sizing: border-box;
+    z-index: 99;
+    .close_search_data_view{
+      position: absolute;
+      top: 12px;
+      right: 32px;
+      color: @fontColorDeep;
+      font-size: 36px;
+    }
+    .search_data_view_title{
+      margin: 16px 0;
+    }
+    .search_data_view_item{
+      margin: 8px 32px;
+      color: @blue;
+      &.gray{
+        color: @fontColorShallow;
+      }
+    }
+  }
+  .notice{
+    width: 500px;
+    height: 640px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    background-color: #FFF;
+    box-shadow: 0 5px 15px  @fontColorShallow;
+    display: flex;
+    flex-direction: column;
+    border-radius: 32px;
+    .title{
+      height: 78px;
+      line-height: 78px;
+      padding: 0 32px;
+      box-sizing: border-box;
+      text-align: center;
+      border-bottom: @borderStyle;
+      position: relative;
+      color: @fontColorDeep;
+      font-size: @fontSizeBig;
+    }
+    .content{
+      flex: 1;
+      overflow: auto;
+      padding: 0 32px;
+      box-sizing: border-box;
+    }
+    .opr{
+      padding: 0 32px;
+      box-sizing: border-box;
+      border-top: @borderStyle;
+      height: 56px;
+      line-height: 56px;
+      color: @blue;
+      text-align: center;
+      display: flex;
+      .opr_item{
+        flex: 1;
+        border-right: @borderStyle;
+        &.gray{
+          color: @fontColorShallow;
+        }
+        &:last-of-type{
+          border-right: none;
+        }
+      }
     }
   }
 }

@@ -29,12 +29,12 @@
 */
 @font-face {
   font-family: 'iconfont';  /* project id 2254908 */
-  src: url('//at.alicdn.com/t/font_2254908_6dovpulr21j.eot');
-  src: url('//at.alicdn.com/t/font_2254908_6dovpulr21j.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_2254908_6dovpulr21j.woff2') format('woff2'),
-  url('//at.alicdn.com/t/font_2254908_6dovpulr21j.woff') format('woff'),
-  url('//at.alicdn.com/t/font_2254908_6dovpulr21j.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_2254908_6dovpulr21j.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_2254908_rd2iy22sey.eot');
+  src: url('//at.alicdn.com/t/font_2254908_rd2iy22sey.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_2254908_rd2iy22sey.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_2254908_rd2iy22sey.woff') format('woff'),
+  url('//at.alicdn.com/t/font_2254908_rd2iy22sey.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_2254908_rd2iy22sey.svg#iconfont') format('svg');
 }
 .iconFont{
   font-family: 'iconfont';
@@ -56,6 +56,33 @@
   }
   &.add_circle::after{
     content: '\e68f';
+  }
+  // 产品列表库存icon
+  &.store::before{
+    content: '\e64c';
+    font-size: 36px ;
+    margin-right: 8px;
+  }
+  // 产品列表收藏icon
+  &.collect_hollow::before{
+    content: '\e607';
+    margin-right: 8px;
+  }
+  &.collect_solid::before{
+    content: '\e6c8';
+    margin-right: 8px;
+  }
+  &.close::after{
+    content: '\e647';
+  }
+  // 个人中心icon
+  &.collect::before{
+    content: '\e648';
+    font-size: 64px;
+  }
+  &.history::before{
+    content: '\e7aa';
+    font-size: 64px;
   }
 }
 

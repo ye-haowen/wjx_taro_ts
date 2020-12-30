@@ -21,7 +21,7 @@ export default class Index extends Component<any, isState> {
       list: [],
       isLast: false,
       isGetting: false,
-      height: 460
+      height: 0
     }
   }
   //  页面挂载初始化
@@ -93,13 +93,13 @@ export default class Index extends Component<any, isState> {
           this.getOrderList(true)
         }} className='searchCtn'
         />
-        <view className='selectCtn'>筛选栏</view>
+        {/* <view className='selectCtn'>筛选栏</view> */}
         {/* 下方scroll栏 */}
         <view className='scrollViewBox'>
           <ScrollView
             className='scrollViewCtn order_list_ctn'
             scrollY
-            style={`height:${this.state.height}px`}
+            style={this.state.height && `height:${this.state.height}px`}
             onScrollToLower={() => { this.getOrderList() }}
           >
             {this.state.list.map((item, index) => <OrderListItem item={item} key={index} />)}
@@ -113,7 +113,7 @@ export default class Index extends Component<any, isState> {
   }
 }
 function OrderListItem({ item, ...props }) {
-  const isItemStatus = Math.random() > 0.5
+  // const isItemStatus = Math.random() > 0.5
   return (
     <view
       className='order_list_item'
@@ -126,12 +126,14 @@ function OrderListItem({ item, ...props }) {
       <view className='right_info'>
         <view className='top_info'>
           <view className='top_item strong'>订单编号：{item.order_code}</view>
+          <view className='top_item'>sku编号：{item.sku_code}</view>
           <view className='top_item'>产品名称：{item.product_name}</view>
+          <view className='top_item'>下单数量：{item.number || 0}</view>
           <view className='top_item'>备注信息：{item.desc}</view>
         </view>
         <view className='bottom_info'>
           <view className='order_time'>{item.create_time}</view>
-          <view className={`status ${isItemStatus ? 'orange' : 'green'}`}>{isItemStatus ? '未发货' : '已发货'}</view>
+          {/* <view className={`status ${isItemStatus ? 'orange' : 'green'}`}>{isItemStatus ? '未发货' : '已发货'}</view> */}
         </view>
       </view>
     </view>

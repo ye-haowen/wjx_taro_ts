@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Image, Input } from '@tarojs/components'
+import { Image, Input, Text } from '@tarojs/components'
 import Api, { Request } from '../../assets/js/request'
 import { Tips, WxApi } from '../../assets/js/wxApi'
 import './index.less'
@@ -73,8 +73,8 @@ export default class Index extends Component<any, isState> {
           <view className='logo_ctn'>
             <Image mode='aspectFit' className='logo' src='https://zhihui.tlkrzf.com/1586337764000.png' />
             <view className='name'>
-              <text>织为云</text>
-              <text>协同织造云平台</text>
+              <Text>织为云</Text>
+              <Text>协同织造云平台</Text>
             </view>
           </view>
           <view className='input_ctn'>

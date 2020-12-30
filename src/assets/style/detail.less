@@ -2,14 +2,14 @@
 .pageBody.pageDetailCtn{
   padding: 24px 18px 26px;
   min-height: 100%;
-  .detailCtn{
+  &>.detailCtn{
     width: 100%;
     border-radius: 24px;
     background-color: #FFF;
     padding: 24px 26px;
     box-sizing: border-box;
     margin-bottom: 24px;
-    .title{
+    &>.title{
       height: 37px;
       display: flex;
       align-items: center;
@@ -24,13 +24,13 @@
         margin-right: 16px;
       }
     }
-    .line{
+    &>.line{
       width: 100%;
       height: 0;
       border: @borderStyle;
       margin: 23px 0;
     }
-    .row_item{
+    &>.row_item{
       display: flex;
       margin-bottom: 24px;
       &.noMargin,
@@ -62,7 +62,7 @@
       }
     }
   }
-  .middleTitleCtn{
+  &>.middleTitleCtn{
     margin:  42px 0 24px;
     padding: 0 26px 0 0;
     display: flex;
@@ -72,10 +72,10 @@
       flex: 1;
       font-size: 32px;
     }
-    .stock_info{
+    .store_info{
       display: flex;
       align-items: center;
-      .stock_num{
+      .store_num{
         color: @fontColor100;
       }
     }

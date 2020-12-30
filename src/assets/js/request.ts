@@ -49,7 +49,7 @@ export class Request {
   }
 
   static updateToken(newToken?: string) {
-    this.token = !this.token && (newToken || Taro.getStorageSync('zh_wjc_token'))
+    this.token = newToken || Taro.getStorageSync('zh_wjc_token') || ''
     return this.token
   }
 

@@ -8,12 +8,27 @@
   .selectCtn{
     min-height: 68px;
     line-height: 68px;
-    background-color: @bodyBg;
+    // background-color: @bodyBg;
     padding: @paddingCommon;
+    display: flex;
+    align-items: center;
+    .select_item{
+      flex: 1;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .picker_item::after{
+        font-family: 'iconfont';
+        content: '\e658';
+        margin-left: 16px;
+      }
+    }
   }
   .scrollViewBox{
     flex: 1;
     box-shadow: inset 0px 15px 10px -15px @bodyBg;
+    overflow: hidden;
     .scrollViewCtn{
       padding:  32px;
       box-sizing: border-box;

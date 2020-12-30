@@ -1,11 +1,13 @@
 export default {
   pages: [
-    'pages/order/list/index',
     'pages/index/index',
     'pages/product/detail/index',
     'pages/product/list/index',
+    'pages/product/store/index',
+    'pages/order/list/index',
     'pages/order/detail/index',
-    'pages/login/index'
+    'pages/login/index',
+    'pages/user/index'
   ],
   window: {
     backgroundTextStyle: 'light',
@@ -21,7 +23,7 @@ export default {
       iconPath: './assets/image/tabbar/store_1.png',
       selectedIconPath: './assets/image/tabbar/store_2.png'
     }, {
-      pagePath: "pages/order/list/index",
+      pagePath: "pages/user/index",
       text: "个人中心",
       iconPath: './assets/image/tabbar/user_1.png',
       selectedIconPath: './assets/image/tabbar/user_2.png'

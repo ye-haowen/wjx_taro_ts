@@ -1,0 +1,101 @@
+@import '../../assets/style/common.less';
+@font-face {
+  font-family: 'iconfont_user';  /* project id 2300586 */
+  src: url('//at.alicdn.com/t/font_2300586_s0laljrw77.eot');
+  src: url('//at.alicdn.com/t/font_2300586_s0laljrw77.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_2300586_s0laljrw77.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_2300586_s0laljrw77.woff') format('woff'),
+  url('//at.alicdn.com/t/font_2300586_s0laljrw77.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_2300586_s0laljrw77.svg#iconfont') format('svg');
+}
+#user{
+  background-color: #FFF;
+  .top_info{
+    height: 140px;
+    padding: 0 32px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    margin: 36px 0;
+    .left{
+      width: 120px;
+      height: 120px;
+      background-color: @blue;
+      font-size: 64px;
+      color: #FFF;
+      text-align: center;
+      line-height: 120px;
+      border-radius: 50%;
+    }
+    .right{
+      flex: 1;
+      margin-left: 21px;
+      .name{
+        font-size: 32px;
+        color: @fontColorDeep;
+      }
+      .user_type{
+        margin-top: 12px;
+        font-size: @fontSizeSmall;
+        color: @fontColorShallow;
+      }
+    }
+  }
+  .module_info{
+    display: flex;
+    margin-top: 58px;
+    .module_item{
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  .other_item{
+    display: flex;
+    align-items: center;
+    border-bottom: @borderStyle;
+    min-height: 78px;
+    padding: 0 32px;
+    box-sizing: border-box;
+    &.firstItem{
+      border-top: @borderStyle;
+      margin-top: 48px;
+    }
+    .label{
+      width: 6em;
+      color: @fontColorDeep;
+      font-family: 'iconfont_user';
+      display: flex;
+      align-items: center;
+      &.phone::before{
+        font-size: 36px;
+        margin-right: 16px;
+        content: '\e602';
+        color: rgb(191,103,232);
+      }
+      &.wx::before{
+        font-size: 32px;
+        margin-right: 16px;
+        content: '\e607';
+        color: rgb(40,196,69);
+      }
+    }
+    .text{
+      flex: 1;
+      text-align: right;
+      color: @fontColorShallow;
+    }
+  }
+  .logout{
+    width: calc(100% - 64px);
+    font-size: 32px;
+    text-align: center;
+    line-height: 78px;
+    margin: 24px auto;
+    border-radius: 8px;
+    background-color: @red;
+    color: #FFF;
+
+  }
+}
