@@ -25,7 +25,7 @@ export default function Index() {
     }).then(res => {
       if (res.status !== false) {
         let storeInfoData: Array<isStoreInfo> = []
-        res.data.items.forEach(itemData => {
+        res.data.forEach(itemData => {
           let findItem = storeInfoData.find(itemF => itemF.stock_id === itemData.stock_id)
           if (!findItem) {
             storeInfoData.push({
@@ -39,7 +39,7 @@ export default function Index() {
           }
         })
         setStoreInfo(storeInfoData)
-        setStoreLogInfo(res.data.items)
+        setStoreLogInfo(res.data)
         Tips.loaded()
       }
     })

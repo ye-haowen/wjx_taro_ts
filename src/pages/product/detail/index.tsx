@@ -20,10 +20,31 @@ export default function Index() {
   const [isLike, setIsLike] = useState(false)
   useEffect(() => {
     Tips.loading('加载中...')
-    Api.getProductDetail({
-      id: getCurrentInstance().router.params.productId
-    }).then(res => {
-      if (res.status !== false) {
+    const params = getCurrentInstance().router.params
+    console.log(params)
+    if (params.productId) {
+      Api.getProductDetail({
+        id: params.productId
+      }).then(res => {
+        if (res.status !== false) {
+          setDetailInfo({
+            ...res.data,
+            sku_info: res.data.sku_info.map(itemM => {
+              return {
+                ...itemM,
+                sku_info_com: JSON.parse(itemM.sku_info) && Object.entries(JSON.parse(itemM.sku_info))
+              }
+            })
+          })
+          setIsLike(res.data.is_collect ? true : false)
+          Tips.loaded()
+        }
+      })
+    } else if (params.skuId) {
+      Api.getProductDetailForSku({
+        sku_id: params.skuId
+      }).then(res => {
+        if (res.status === false) return
         setDetailInfo({
           ...res.data,
           sku_info: res.data.sku_info.map(itemM => {
@@ -35,8 +56,8 @@ export default function Index() {
         })
         setIsLike(res.data.is_collect ? true : false)
         Tips.loaded()
-      }
-    })
+      })
+    }
   }, [isLike])
   return (
     <view className='pageBody pageDetailCtn' id='productDetail'>

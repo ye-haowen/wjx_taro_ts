@@ -91,6 +91,7 @@ class WaterfallFlowBox extends Component<any, any, any>{
       let info: { [key: string]: any } = await WxApi.getImageInfo(item.images[0] && item.images[0].thumb || require('../../assets/image/noPic.jpg'))
       const leftH: number = this.state.left.map(itemM => (itemM.H || 0)).reduce((total: number, current: number) => total + current, 0)
       const rightH: number = this.state.right.map(itemM => (itemM.H || 0)).reduce((total: number, current: number) => total + current, 0)
+      console.log(info, leftH, rightH)
       if (leftH > rightH) {
         this.setState({
           right: [...this.state.right, { H: (info.height / info.width), ...item }]
@@ -100,6 +101,8 @@ class WaterfallFlowBox extends Component<any, any, any>{
           left: [...this.state.left, { H: (info.height / info.width), ...item }]
         })
       }
+      console.log('rightArr:', this.state.right)
+      console.log('leftArr:', this.state.left)
     }
   }
   render() {

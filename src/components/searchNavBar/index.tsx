@@ -98,7 +98,7 @@ function SearchNavBar({ onSearch, onScan, value, className, ...props }: isProps)
         <view className='left left_icon' onClick={() => {
           WxApi.scanCode().then((res: { [key: string]: any }) => {
             const id = res.result.match(/[1-9]\d*$/)
-            onScan ? onScan(res, id[0]) : WxApi.navigateTo(`/pages/product/detail/index?productId=${id[0]}`)
+            onScan ? onScan(res, id[0]) : WxApi.navigateTo(`/pages/product/detail/index?skuId=${id[0]}`)
           })
         }}
         >

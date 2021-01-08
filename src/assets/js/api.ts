@@ -10,6 +10,7 @@ export default {
   authInfo: 'user/info',
   getProductList: 'product/lists',
   getProductDetail: 'product/detail',
+  getProductDetailForSku: 'product/detail/sku',
   collectProduct: {
     url: 'product/collect',
     method: 'POST'
