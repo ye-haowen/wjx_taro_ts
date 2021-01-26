@@ -2,7 +2,7 @@
   "miniprogramRoot": "dist/",
   "projectname": "wjc_weapp",
   "description": "围巾城项目小程序端",
-  "appid": "wx756cd0e9e6ca1ee5",
+  "appid": "wx5f4706a2ea379da0",
   "setting": {
     "urlCheck": true,
     "es6": false,

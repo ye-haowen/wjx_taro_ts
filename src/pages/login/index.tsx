@@ -73,8 +73,8 @@ export default class Index extends Component<any, isState> {
           <view className='logo_ctn'>
             <Image mode='aspectFit' className='logo' src='https://zhihui.tlkrzf.com/1586337764000.png' />
             <view className='name'>
-              <Text>织为云</Text>
-              <Text>协同织造云平台</Text>
+              <Text>中国围巾城</Text>
+              <Text>China Scarf City</Text>
             </view>
           </view>
           <view className='input_ctn'>
