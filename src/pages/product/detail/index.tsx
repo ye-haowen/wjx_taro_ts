@@ -143,7 +143,8 @@ export default function Index() {
               <view className='info_item strong'>
                 sku编码：{itemM.sku_code}
                 <view className='blue copy'
-                  onClick={() => {
+                  onClick={(e) => {
+                    e.stopPropagation()
                     WxApi.setClipboardData(itemM.sku_code)
                   }}
                 >点击复制</view>

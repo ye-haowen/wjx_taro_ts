@@ -4,6 +4,9 @@
  * @param connector 连接符(默认'-')
  */
 function $getTime(date?: any, connector: string = '-'): string {
+  if (date) { // 解决ios系统new Date参数中时间用‘-’连接出现NaN的问题
+    date = date.toString().replace(/-/g, '/')
+  }
   if (date && !new Date(date)) {
     return 'error'
   }
