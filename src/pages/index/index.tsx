@@ -74,6 +74,8 @@ class WaterfallFlowBox extends Component<any, any, any>{
     }
   }
   componentDidMount() {
+    // 设置分享
+    WxApi.showShareMenu()
     this.getList()
   }
   // 获取商品列表

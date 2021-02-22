@@ -17,6 +17,8 @@ export default class Index extends Component<any, isState, any> {
   }
 
   componentDidMount() {
+    // 设置分享
+    WxApi.showShareMenu()
     const userInfo = WxApi.getStorageSync('zh_wjc_user_info')
     console.log(userInfo)
     this.setState({

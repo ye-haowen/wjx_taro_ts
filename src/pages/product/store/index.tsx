@@ -44,6 +44,8 @@ export default function Index() {
       }
     })
   }, [])
+  // 设置分享
+  WxApi.showShareMenu()
   return (
     <view className='pageBody pageDetailCtn' id='productStore'>
       {/* sku信息 */}

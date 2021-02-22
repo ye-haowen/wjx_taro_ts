@@ -147,4 +147,7 @@ export class WxApi {
       data: data
     })
   }
+  static showShareMenu(options?: any) {
+    Taro.showShareMenu(options)
+  }
 }

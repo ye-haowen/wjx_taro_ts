@@ -59,6 +59,8 @@ export default function Index() {
       })
     }
   }, [isLike])
+  // 设置分享
+  WxApi.showShareMenu()
   return (
     <view className='pageBody pageDetailCtn' id='productDetail'>
       <view className='detailCtn'>

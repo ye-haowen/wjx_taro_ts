@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Image, Input, Text } from '@tarojs/components'
+import { Image, Input } from '@tarojs/components'
 import Api, { Request } from '../../assets/js/request'
 import { Tips, WxApi } from '../../assets/js/wxApi'
 import './index.less'
@@ -17,6 +17,8 @@ export default class Index extends Component<any, isState> {
     }
   }
   componentDidMount() {
+    // 设置分享
+    WxApi.showShareMenu()
     const account = WxApi.getStorageSync('zh_wjc_user_account') || ''
     const password = WxApi.getStorageSync('zh_wjc_user_password') || ''
     this.setState({
@@ -44,7 +46,7 @@ export default class Index extends Component<any, isState> {
       user_name: this.state.user_account,
       password: this.state.user_password
     }).then(res => {
-      if (res.status !== false) {
+      if (res && res.status !== false) {
         WxApi.setStorageSync('zh_wjc_token', `${res.data.token_type} ${res.data.access_token}`)
         //  更新token
         Request.updateToken(`${res.data.token_type} ${res.data.access_token}`)
@@ -63,6 +65,8 @@ export default class Index extends Component<any, isState> {
             })
           }
         })
+      } else {
+        Tips.loaded()
       }
     })
   }
@@ -71,11 +75,11 @@ export default class Index extends Component<any, isState> {
       <view className='pageBody' id='login'>
         <view className='out_box'>
           <view className='logo_ctn'>
-            <Image mode='aspectFit' className='logo' src='https://zhihui.tlkrzf.com/1586337764000.png' />
-            <view className='name'>
+            <Image mode='aspectFit' className='logo' src={require('../../assets/image/logo.jpg')} />
+            {/* <view className='name'>
               <Text>中国围巾城</Text>
               <Text>China Scarf City</Text>
-            </view>
+            </view> */}
           </view>
           <view className='input_ctn'>
             <view className='iconFont user_account'></view>

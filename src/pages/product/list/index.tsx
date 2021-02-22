@@ -51,6 +51,8 @@ export default class Index extends Component<any, isState> {
   }
   //  页面挂载初始化
   componentDidMount() {
+    // 设置分享
+    WxApi.showShareMenu()
     Promise.all([
       Api.getClientList(),
       Api.getUserList()

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Image } from '@tarojs/components'
 import { getCurrentInstance } from '@tarojs/taro'
+import { WxApi } from '../../../assets/js/wxApi'
 import Api from '../../../assets/js/request'
 import GlobalData from '../../../assets/js/globalData'
 import './index.less'
@@ -24,6 +25,8 @@ export default function Index() {
       })
     }
   }, [])
+  // 设置分享
+  WxApi.showShareMenu()
   return (
     <view className='pageBody pageDetailCtn' id='productDetail'>
       <view className='detailCtn'>

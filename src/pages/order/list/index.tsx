@@ -26,6 +26,8 @@ export default class Index extends Component<any, isState> {
   }
   //  页面挂载初始化
   componentDidMount() {
+    // 设置分享
+    WxApi.showShareMenu()
     this.getOrderList(true)
   }
   // 页面准备好更新scrollView的height

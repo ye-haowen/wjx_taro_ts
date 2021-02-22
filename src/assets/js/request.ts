@@ -66,10 +66,9 @@ export class Request {
     } else if (res.data.code === 401) {
       Taro.reLaunch({ url: '/pages/login/index' })
     }
-
     // 请求错误
     const edata = { ...res.data, err: (res.data && res.data.msg) || '网络错误 ~' }
-    Tips.toast(edata.err)
+    Tips.toast({ title: edata.err })
   }
 
 
